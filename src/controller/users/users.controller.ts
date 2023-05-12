@@ -11,10 +11,10 @@ import {
     Query,
     UseGuards
 } from '@nestjs/common';
-import {User} from "../shemas/user";
+import {User} from "../../shemas/user";
 import {AuthGuard} from "@nestjs/passport";
-import {UserDto} from "../dto/user-dto";
-import {UsersService} from "../services/users/users.service";
+import {UserDto} from "../../dto/user-dto";
+import {UsersService} from "../../services/users/users.service";
 
 @Controller('users')
 export class UsersController {
