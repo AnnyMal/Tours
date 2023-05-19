@@ -30,7 +30,7 @@ export class UsersController {
     }
     @Post()
     sendUsers(@Body()data):Promise<User>{
-        return this.userService.checkAuthUser(data.login, data.psw).then((queryRes) =>{
+        return this.userService.checkRegUser(data.login).then((queryRes) =>{
             console.log('data reg', queryRes)
             if (queryRes.length ===0) {
                 return this.userService.sendUsers(data)

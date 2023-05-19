@@ -4,7 +4,7 @@ import { Injectable } from '@nestjs/common';
 import {jwtConstants} from "../../../static/private/constants";
 
 @Injectable()
-export class JwtStrategy extends PassportStrategy(Strategy) {
+export class JwtStrategyService extends PassportStrategy(Strategy) {
     constructor() {
         super({
             //логика проверки запросов от клиента

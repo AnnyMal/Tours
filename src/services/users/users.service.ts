@@ -38,9 +38,16 @@ export class UsersService {
         return usersArr.length === 0? null: usersArr;
     }
 
+    async checkRegUser(login: string): Promise<User[]>{
+        const usersArr = await this.userModel.find({login: login});
+        return usersArr;
+    }
+
     async login(user: UserDto) {
-        const payload ={login: user.login, psw: user.psw};
+        const payload = {login: user.login, psw: user.psw};
+        const userFromDb = await this.userModel.find({login: user.login})
         return {
+            id: userFromDb[0]._id,
             access_token: this.jwtService.sign(payload)
         }
     }
