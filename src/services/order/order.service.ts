@@ -8,6 +8,7 @@ import {OrderDto} from "../../dto/order-dto";
 export class OrderService {
     constructor(@InjectModel(Order.name) private orderModel: Model<OrderDocument>) {
     }
+    //метод создает новую запись
     async sendOrder(data: OrderDto): Promise<Order>{
         const orderData = new this.orderModel(data);
         return orderData.save();
