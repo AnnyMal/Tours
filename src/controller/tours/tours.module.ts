@@ -7,10 +7,11 @@ import {jwtConstants} from "../../static/private/constants";
 import {ToursService} from "../../services/tours/tours.service";
 import {Tour, TourSchema} from "../../shemas/tour";
 import {JwtStrategyService} from "../../services/Authentication/jwt-strategy/jwt-strategy.service";
+import {TourItemController} from "../tour-item/tour-item.controller";
 
 
 @Module({
-  controllers: [ToursController],
+  controllers: [ToursController,  TourItemController],
   imports: [MongooseModule.forFeature([{name: Tour.name, schema: TourSchema}]),
   PassportModule,
       JwtModule.register({

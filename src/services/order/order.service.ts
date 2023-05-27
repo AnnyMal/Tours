@@ -13,4 +13,7 @@ export class OrderService {
         const orderData = new this.orderModel(data);
         return orderData.save();
     }
+    async getOrders(userId): Promise<Order[]> {
+        return this.orderModel.find({"userId": userId});
+    }
 }

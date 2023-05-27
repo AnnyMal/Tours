@@ -1,6 +1,7 @@
-import {Body, Controller, Post} from '@nestjs/common';
+import {Body, Controller, Get, Param, Post} from '@nestjs/common';
 import {OrderService} from "../../services/order/order.service";
 import {OrderDto} from "../../dto/order-dto";
+import {Order} from "../../shemas/order";
 
 @Controller('order')
 export class OrderController {
@@ -14,4 +15,8 @@ export class OrderController {
     this.orderService.sendOrder(orderData);
 
 }
+    @Get("userId")
+    getOrders(@Param("userId") userId): Promise<Order[]> {
+        return this.orderService.getOrders(userId);
+    }
 }

@@ -28,4 +28,5 @@ export class ToursController {
         return this.toursService.deleteTours();
     }
 
+
 }
